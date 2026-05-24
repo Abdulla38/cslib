@@ -6,16 +6,15 @@ void add_element(LinkedList *list, int n, void *el) {
   Node *curr     = {0};
   Node *new_node = {0};
 
-  if (list == NULL) return;
+  if (list == NULL) {
+    list = (LinkedList *)calloc(1, sizeof(LinkedList));
+  }
 
   if (n > list->size) n = list->size;
   if (n < 0) return;
 
   new_node = calloc(1, sizeof(Node));
-  if (new_node == NULL) {
-    MALLOC_ERROR_TMP();
-    return;
-  }
+  if (new_node == NULL) MALLOC_ERROR_TMP();
   new_node->data = el;
 
   prev = NULL;

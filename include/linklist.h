@@ -17,26 +17,7 @@ typedef struct {
 #define MALLOC_ERROR_TMP()                                                     \
   do {                                                                         \
     fprintf(stderr, "ERROR: could not allocate data. Buy more RAM.\n");        \
-  } while (0)
-
-#define ll_reserve(list, el)                                                   \
-  do {                                                                         \
-    (list) = (LinkedList *)malloc(sizeof(LinkedList));                         \
-    if ((list) == NULL) {                                                      \
-      MALLOC_ERROR_TMP();                                                      \
-      break;                                                                   \
-    }                                                                          \
-                                                                               \
-    (list)->head = (Node *)malloc(sizeof(Node));                               \
-    if ((list)->head == NULL) {                                                \
-      MALLOC_ERROR_TMP();                                                      \
-      break;                                                                   \
-    }                                                                          \
-                                                                               \
-    (list)->head->data = (el);                                                 \
-    (list)->head->next = NULL;                                                 \
-    (list)->tail = (list)->head;                                               \
-    (list)->size = 1;                                                          \
+    break;                                                                     \
   } while (0)
 
 void add_element(LinkedList *list, int n, void *el);
