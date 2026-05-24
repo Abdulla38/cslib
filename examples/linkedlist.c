@@ -8,7 +8,6 @@
 int main(void) {
   LinkedList *llist = NULL;
   char hello[]      = "Hello";
-  ll_reserve(llist, &hello[0]);
   for (size_t i = 1; i < strlen(hello); i++) {
     add_element(llist, i, &hello[i]);
   }
